@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>21 Flores Amarillas 🌻</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            min-height: 100vh;
+            font-family: Georgia, "Times New Roman", serif;
+            background:
+                radial-gradient(circle at top, #ffffff, transparent 50%),
+                linear-gradient(135deg, #fffbbf, #ffe853, #ffd000);
+            overflow-x: hidden;
+            color: #3d2b00;
+        }
+
+        .inicio {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 20px;
+            transition: 1s;
+        }
+
+        .inicio h1 {
+            font-size: clamp(35px, 7vw, 65px);
+            color: #d47a00;
+            margin-bottom: 10px;
+            text-shadow: 2px 3px 8px rgba(255, 166, 0, 0.4);
+        }
+
+        .inicio p {
+            font-size: 22px;
+            font-weight: bold;
+            color: #614400;
+            margin-bottom: 35px;
+        }
+
+        .regalo {
+            position: relative;
+            width: 180px;
+            height: 150px;
+            cursor: pointer;
+            margin: 20px;
+        }
+
+        .caja {
+            position: absolute;
+            bottom: 0;
+            width: 180px;
+            height: 110px;
+            background: linear-gradient(135deg, #ffaa00, #ffea00);
+            border-radius: 8px;
+            box-shadow: 0 15px 30px rgba(212, 122, 0, 0.4);
+        }
+
+        .caja::after {
+            content: "";
+            position: absolute;
+            width: 30px;
+            height: 110px;
+            background: #ffffff;
+            left: 75px;
+            top: 0;
+        }
+
+        .tapa {
+            position: absolute;
+            width: 200px;
+            height: 35px;
+            background: linear-gradient(135deg, #ffbb00, #fff066);
+            top: 30px;
+            left: -10px;
+            border-radius: 7px;
+            z-index: 3;
+            transition: 1s;
+            box-shadow: 0 5px 15px rgba(212, 122, 0, 0.3);
+        }
+
+        .tapa::after {
+            content: "";
+            position: absolute;
+            width: 30px;
+            height: 35px;
+            background: #ffffff;
+            left: 85px;
+        }
+
+        .lazo {
+            position: absolute;
+            top: 3px;
+            left: 65px;
+            width: 50px;
+            height: 25px;
+            z-index: 4;
+        }
+
+        .lazo::before,
+        .lazo::after {
+            content: "";
+            position: absolute;
+            width: 30px;
+            height: 22px;
+            border: 6px solid #ffffff;
+            border-radius: 50%;
+        }
+
+        .lazo::before {
+            left: -10px;
+            transform: rotate(25deg);
+        }
+
+        .lazo::after {
+            right: -10px;
+            transform: rotate(-25deg);
+        }
+
+        .regalo:hover .tapa {
+            transform: translateY(-10px) rotate(-2deg);
+        }
+
+        .boton {
+            border: none;
+            padding: 16px 36px;
+            border-radius: 50px;
+            background: linear-gradient(135deg, #ff9900, #ffcc00);
+            color: #ffffff;
+            font-size: 20px;
+            font-weight: bold;
+            cursor: pointer;
+            box-shadow: 0 8px 20px rgba(255, 140, 0, 0.5);
+            transition: 0.3s;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .boton:hover {
+            transform: scale(1.08);
+            background: linear-gradient(135deg, #e68a00, #ebb800);
+        }
+
+        .contenido {
+            display: none;
+            min-height: 100vh;
+            text-align: center;
+            padding: 40px 15px;
+            animation: aparecer 2s ease;
+        }
+
+        .contenido h1 {
+            color: #e67e00;
+            font-size: clamp(35px, 7vw, 60px);
+            margin-bottom: 5px;
+            text-shadow: 2px 3px 6px rgba(255, 153, 0, 0.3);
+        }
+
+        .contenido .subtitulo {
+            font-size: 22px;
+            font-weight: bold;
+            color: #7a5200;
+            margin-bottom: 40px;
+        }
+
+        .flores {
+            width: min(850px, 95%);
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(7, 1fr);
+            gap: 20px;
+            padding: 25px;
+        }
+
+        .flor {
+            font-size: 52px;
+            opacity: 0;
+            transform: scale(0) translateY(50px);
+            animation: crecer 1s forwards;
+            filter: drop-shadow(0 6px 8px rgba(255, 140, 0, 0.4));
+        }
+
+        .flor:nth-child(1) { animation-delay: .1s; }
+        .flor:nth-child(2) { animation-delay: .2s; }
+        .flor:nth-child(3) { animation-delay: .3s; }
+        .flor:nth-child(4) { animation-delay: .4s; }
+        .flor:nth-child(5) { animation-delay: .5s; }
+        .flor:nth-child(6) { animation-delay: .6s; }
+        .flor:nth-child(7) { animation-delay: .7s; }
+
+        .flor:nth-child(8) { animation-delay: .8s; }
+        .flor:nth-child(9) { animation-delay: .9s; }
+        .flor:nth-child(10) { animation-delay: 1s; }
+        .flor:nth-child(11) { animation-delay: 1.1s; }
+        .flor:nth-child(12) { animation-delay: 1.2s; }
+        .flor:nth-child(13) { animation-delay: 1.3s; }
+        .flor:nth-child(14) { animation-delay: 1.4s; }
+
+        .flor:nth-child(15) { animation-delay: 1.5s; }
+        .flor:nth-child(16) { animation-delay: 1.6s; }
+        .flor:nth-child(17) { animation-delay: 1.7s; }
+        .flor:nth-child(18) { animation-delay: 1.8s; }
+        .flor:nth-child(19) { animation-delay: 1.9s; }
+        .flor:nth-child(20) { animation-delay: 2s; }
+        .flor:nth-child(21) { animation-delay: 2.1s; }
+
+        @keyframes crecer {
+
+            0% {
+                opacity: 0;
+                transform: scale(0) translateY(50px);
+            }
+
+            70% {
+                transform: scale(1.2) translateY(-10px);
+            }
+
+            100% {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .carta {
+            width: min(700px, 90%);
+            margin: 40px auto;
+            padding: 40px;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            border: 3px solid #ffcc00;
+            box-shadow:
+                0 20px 45px rgba(212, 122, 0, 0.35),
+                inset 0 0 25px rgba(255, 230, 100, 0.4);
+            animation: carta 2s ease;
+        }
+
+        .carta h2 {
+            color: #e67e00;
+            font-size: 38px;
+            margin-top: 0;
+        }
+
+        .carta p {
+            font-size: 21px;
+            line-height: 1.8;
+            color: #4a3300;
+        }
+
+        .corazon {
+            font-size: 55px;
+            animation: latido 1.5s infinite;
+        }
+
+        @keyframes latido {
+
+            0%, 100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.25);
+            }
+        }
+
+        @keyframes carta {
+
+            from {
+                opacity: 0;
+                transform: translateY(80px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .petalo {
+            position: fixed;
+            top: -50px;
+            font-size: 25px;
+            animation: caer linear infinite;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        @keyframes caer {
+
+            0% {
+                transform: translateY(-50px) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(110vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        @media (max-width: 600px) {
+
+            .flores {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 12px;
+            }
+
+            .flor {
+                font-size: 42px;
+            }
+
+            .carta {
+                padding: 25px;
+            }
+
+            .carta p {
+                font-size: 18px;
+            }
+
+        }
+
+    </style>
+</head>
+
+<body>
+
+    <section class="inicio" id="inicio">
+
+        <h1>Un pequeño regalo 💛</h1>
+
+        <p>
+            Hay algo especial esperando por ti...
+        </p>
+
+        <div class="regalo" onclick="abrirRegalo()">
+
+            <div class="tapa"></div>
+
+            <div class="lazo"></div>
+
+            <div class="caja"></div>
+
+        </div>
+
+        <button class="boton" onclick="abrirRegalo()">
+            🎁 Abrir regalo
+        </button>
+
+    </section>
+
+    <section class="contenido" id="contenido">
+
+        <h1>🌻 21 Flores Amarillas 🌻</h1>
+
+        <p class="subtitulo">
+            Porque algunas personas merecen recibir algo especial 💛
+        </p>
+
+        <div class="flores">
+
+            <div class="flor">🌻</div>
+            <div class="flor">🌻</div>
+            <div class="flor">🌻</div>
+            <div class="flor">🌻</div>
+            <div class="flor">🌻</div>
+            <div class="flor">🌻</div>
+            <div class="flor">🌻</div>
+
+            <div class="flor">🌻</div>
+            <div class="flor">🌻</div>
+            <div class="flor">🌻</div>
+            <div class="flor">🌻</div>
+            <div class="flor">🌻</div>
+            <div class="flor">🌻</div>
+            <div class="flor">🌻</div>
+
+            <div class="flor">🌻</div>
+            <div class="flor">🌻</div>
+            <div class="flor">🌻</div>
+            <div class="flor">🌻</div>
+            <div class="flor">🌻</div>
+            <div class="flor">🌻</div>
+            <div class="flor">🌻</div>
+
+        </div>
+
+        <div class="carta">
+
+            <div class="corazon">💛</div>
+
+            <h2>Para ti</h2>
+
+            <p>
+                Estas <strong>21 flores amarillas</strong> son para recordarte
+                lo especial que eres.
+            </p>
+
+            <p>
+                No son solamente flores.
+                Cada una representa un deseo:
+                que sonrías, que seas feliz y que nunca olvides
+                lo mucho que vales.
+            </p>
+
+            <p>
+                Espero que cuando veas estas flores,
+                tengas un pequeño momento de felicidad.
+            </p>
+
+            <p>
+                Porque a veces un pequeño detalle puede decir
+                mucho más que mil palabras. 🌻
+            </p>
+
+            <p>
+                <strong>Con mucho cariño para ti. 💛</strong>
+            </p>
+
+            <div class="corazon">
+                🌻 💛 🌻
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <script>
+
+        function abrirRegalo() {
+
+            document.getElementById("inicio").style.display = "none";
+
+            document.getElementById("contenido").style.display = "block";
+
+            crearPetalos();
+
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
+        }
+
+
+        function crearPetalos() {
+
+            for (let i = 0; i < 25; i++) {
+
+                let petalo = document.createElement("div");
+
+                petalo.className = "petalo";
+
+                petalo.innerHTML = "🌼";
+
+                petalo.style.left = Math.random() * 100 + "vw";
+
+                petalo.style.animationDuration =
+                    (5 + Math.random() * 6) + "s";
+
+                petalo.style.animationDelay =
+                    Math.random() * 5 + "s";
+
+                petalo.style.fontSize =
+                    (15 + Math.random() * 20) + "px";
+
+                document.body.appendChild(petalo);
+
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>
