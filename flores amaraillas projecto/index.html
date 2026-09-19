@@ -17,10 +17,10 @@
             min-height: 100vh;
             font-family: Georgia, "Times New Roman", serif;
             background:
-                radial-gradient(circle at top, #fff9d6, transparent 40%),
-                linear-gradient(135deg, #fff1a8, #ffd95c, #fff3b0);
+                radial-gradient(circle at top, #ffffff, transparent 50%),
+                linear-gradient(135deg, #fffbbf, #ffe853, #ffd000);
             overflow-x: hidden;
-            color: #5c4300;
+            color: #3d2b00;
         }
 
         .inicio {
@@ -36,13 +36,15 @@
 
         .inicio h1 {
             font-size: clamp(35px, 7vw, 65px);
-            color: #c88a00;
+            color: #d47a00;
             margin-bottom: 10px;
-            text-shadow: 2px 3px 5px rgba(120, 80, 0, 0.2);
+            text-shadow: 2px 3px 8px rgba(255, 166, 0, 0.4);
         }
 
         .inicio p {
-            font-size: 20px;
+            font-size: 22px;
+            font-weight: bold;
+            color: #614400;
             margin-bottom: 35px;
         }
 
@@ -59,9 +61,9 @@
             bottom: 0;
             width: 180px;
             height: 110px;
-            background: linear-gradient(135deg, #e5a900, #ffc928);
+            background: linear-gradient(135deg, #ffaa00, #ffea00);
             border-radius: 8px;
-            box-shadow: 0 15px 25px rgba(100, 70, 0, 0.3);
+            box-shadow: 0 15px 30px rgba(212, 122, 0, 0.4);
         }
 
         .caja::after {
@@ -69,7 +71,7 @@
             position: absolute;
             width: 30px;
             height: 110px;
-            background: #fff2a8;
+            background: #ffffff;
             left: 75px;
             top: 0;
         }
@@ -78,13 +80,13 @@
             position: absolute;
             width: 200px;
             height: 35px;
-            background: linear-gradient(135deg, #f5c21c, #ffd94d);
+            background: linear-gradient(135deg, #ffbb00, #fff066);
             top: 30px;
             left: -10px;
             border-radius: 7px;
             z-index: 3;
             transition: 1s;
-            box-shadow: 0 5px 10px rgba(80, 50, 0, 0.2);
+            box-shadow: 0 5px 15px rgba(212, 122, 0, 0.3);
         }
 
         .tapa::after {
@@ -92,7 +94,7 @@
             position: absolute;
             width: 30px;
             height: 35px;
-            background: #fff2a8;
+            background: #ffffff;
             left: 85px;
         }
 
@@ -111,7 +113,7 @@
             position: absolute;
             width: 30px;
             height: 22px;
-            border: 6px solid #fff3a0;
+            border: 6px solid #ffffff;
             border-radius: 50%;
         }
 
@@ -131,20 +133,21 @@
 
         .boton {
             border: none;
-            padding: 15px 30px;
+            padding: 16px 36px;
             border-radius: 50px;
-            background: #d99b00;
-            color: white;
-            font-size: 18px;
+            background: linear-gradient(135deg, #ff9900, #ffcc00);
+            color: #ffffff;
+            font-size: 20px;
             font-weight: bold;
             cursor: pointer;
-            box-shadow: 0 6px 15px rgba(100, 70, 0, 0.3);
+            box-shadow: 0 8px 20px rgba(255, 140, 0, 0.5);
             transition: 0.3s;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.2);
         }
 
         .boton:hover {
             transform: scale(1.08);
-            background: #bd8500;
+            background: linear-gradient(135deg, #e68a00, #ebb800);
         }
 
         .contenido {
@@ -156,14 +159,16 @@
         }
 
         .contenido h1 {
-            color: #bd8200;
+            color: #e67e00;
             font-size: clamp(35px, 7vw, 60px);
             margin-bottom: 5px;
+            text-shadow: 2px 3px 6px rgba(255, 153, 0, 0.3);
         }
 
         .contenido .subtitulo {
-            font-size: 20px;
-            color: #795900;
+            font-size: 22px;
+            font-weight: bold;
+            color: #7a5200;
             margin-bottom: 40px;
         }
 
@@ -177,11 +182,11 @@
         }
 
         .flor {
-            font-size: 48px;
+            font-size: 52px;
             opacity: 0;
             transform: scale(0) translateY(50px);
             animation: crecer 1s forwards;
-            filter: drop-shadow(0 5px 5px rgba(120, 80, 0, 0.2));
+            filter: drop-shadow(0 6px 8px rgba(255, 140, 0, 0.4));
         }
 
         .flor:nth-child(1) { animation-delay: .1s; }
@@ -229,25 +234,25 @@
             width: min(700px, 90%);
             margin: 40px auto;
             padding: 40px;
-            background: rgba(255, 255, 255, 0.85);
+            background: rgba(255, 255, 255, 0.95);
             border-radius: 25px;
-            border: 2px solid rgba(210, 160, 0, 0.4);
+            border: 3px solid #ffcc00;
             box-shadow:
-                0 15px 40px rgba(100, 70, 0, 0.25),
-                inset 0 0 30px rgba(255, 210, 50, 0.15);
+                0 20px 45px rgba(212, 122, 0, 0.35),
+                inset 0 0 25px rgba(255, 230, 100, 0.4);
             animation: carta 2s ease;
         }
 
         .carta h2 {
-            color: #c68a00;
-            font-size: 35px;
+            color: #e67e00;
+            font-size: 38px;
             margin-top: 0;
         }
 
         .carta p {
-            font-size: 20px;
+            font-size: 21px;
             line-height: 1.8;
-            color: #604900;
+            color: #4a3300;
         }
 
         .corazon {
@@ -262,7 +267,7 @@
             }
 
             50% {
-                transform: scale(1.2);
+                transform: scale(1.25);
             }
         }
 
@@ -309,7 +314,7 @@
             }
 
             .flor {
-                font-size: 38px;
+                font-size: 42px;
             }
 
             .carta {
@@ -477,4 +482,3 @@
 
 </body>
 </html>
-```
